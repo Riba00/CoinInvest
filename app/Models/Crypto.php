@@ -9,6 +9,12 @@ class Crypto extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'acronym',
+        'logo'
+    ];
+
     public function deposit()
     {
         return $this->hasMany(Deposit::class);
