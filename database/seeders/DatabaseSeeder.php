@@ -23,23 +23,28 @@ function create_sample_cryptos()
 {
     $crypto1 = Crypto::create([
         'name' => 'Bitcoin',
-        'acronym' => 'BTC'
+        'acronym' => 'BTC',
+        'logo' => 'https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=025'
     ]);
     $crypto2 = Crypto::create([
         'name' => 'Ethereum',
-        'acronym' => 'ETH'
+        'acronym' => 'ETH',
+        'logo' => 'https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025'
     ]);
     $crypto3 = Crypto::create([
         'name' => 'Cardano',
-        'acronym' => 'ADA'
+        'acronym' => 'ADA',
+        'logo' => 'https://cryptologos.cc/logos/cardano-ada-logo.png?v=025'
     ]);
     $crypto4 = Crypto::create([
         'name' => 'XRP',
-        'acronym' => 'XRP'
+        'acronym' => 'XRP',
+        'logo' => 'https://cryptologos.cc/logos/xrp-xrp-logo.png?v=025'
     ]);
     $crypto5 = Crypto::create([
         'name' => 'Dogecoin',
-        'acronym' => 'DOGE'
+        'acronym' => 'DOGE',
+        'logo' => 'https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=025'
     ]);
 }
 
