@@ -16,7 +16,7 @@ return new class extends Migration
             $table->decimal('amount', 8, 2);
             $table->unsignedBigInteger('crypto_id');
             $table->foreign('crypto_id')->references('id')->on('cryptos');
-            $table->decimal('quantity',8,10);
+            $table->double('quantity');
             $table->date('date');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
