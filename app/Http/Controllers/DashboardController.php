@@ -19,7 +19,10 @@ class DashboardController extends Controller
         }
         $totalFormatted = number_format($total, 2, ',', '.');
 
-        $recentDeposits = Deposit::orderBy('date', 'desc')->take(3)->get();
+        $recentDeposits = Deposit::where('user_id', $user->id)
+            ->orderBy('date', 'asc')
+            ->take(3)
+            ->get();
 
 
         return view('dashboard', [

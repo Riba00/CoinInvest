@@ -66,4 +66,14 @@ class User extends Authenticatable
         return $this->hasMany(Deposit::class);
     }
 
+    public function getCryptoBalance()
+    {
+        $totals = Deposit::select('user_id', 'crypto_id')
+            ->selectRaw('SUM(quantity) as total, SUM(amount) as invested')
+            ->groupBy('user_id', 'crypto_id')
+            ->get();
+        return $totals;
+
+    }
+
 }
