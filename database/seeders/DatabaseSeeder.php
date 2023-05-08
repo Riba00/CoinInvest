@@ -56,7 +56,7 @@ function create_sample_deposits() {
             'amount' => rand(0,1000),
             'crypto_id' => rand(1,5),
             'quantity' => mt_rand() / mt_getrandmax(),
-            'date' => Carbon::now(),
+            'date' => '2023-05-05',
             'user_id' => 1
         ]);
     }

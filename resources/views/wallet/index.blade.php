@@ -18,6 +18,7 @@
                                     <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-2">Name</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Total Quantity</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Invested</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Crypto Price</th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-4">
                                         <span class="sr-only">Edit</span>
                                     </th>
@@ -41,8 +42,9 @@
                                     </td>
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$currency->invested}}</td>
+                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$currency->crypto->getCurrencyEurPrice()}}</td>
                                     <td class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900"><b>Show deposits</b></a>
+                                        <a href="/wallet/{{ $currency->crypto->id }}" class="text-indigo-600 hover:text-indigo-900"><b>Show details</b></a>
                                     </td>
                                 </tr>
                                 @endforeach

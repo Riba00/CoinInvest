@@ -33,7 +33,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::delete('deposits/{id}',[DepositsController::class,'destroy']);
 
     //WALLET
-    Route::get('/wallet',[WalletController::class, 'index'])->name('wallet');
+    Route::get('/wallet',[WalletController::class, 'index'])->name('wallet.index');
+    Route::get('/wallet/{id}' ,[WalletController::class, 'show'])->name('wallet.show');
 
 
     Route::middleware([CheckAdminRole::class])->group(function () {
@@ -44,7 +45,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::post('/cryptos/{id}',[CryptoController::class,'update']);
         Route::delete('cryptos/{id}',[CryptoController::class,'destroy']);
 
-        //USERS
+
 
     });
 
