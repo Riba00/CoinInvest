@@ -243,7 +243,7 @@
                             @else
                                 @foreach($deposits as $deposit)
                                     <tr>
-                                        <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-2">{{ $deposit->amount }}
+                                        <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-2">{{ $deposit->getFormattedAmount() }}
                                             €
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">{{ $deposit->crypto->name }}</td>
