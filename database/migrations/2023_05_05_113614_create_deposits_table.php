@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
-            $table->decimal('amount', 8, 2);
+            $table->double('amount');
             $table->unsignedBigInteger('crypto_id');
             $table->foreign('crypto_id')->references('id')->on('cryptos');
             $table->double('quantity');
