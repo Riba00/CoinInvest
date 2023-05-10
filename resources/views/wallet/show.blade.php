@@ -15,10 +15,10 @@
                                     € {{ $crypto->getCurrencyEurPrice() }}
                                 </p>
                                 <h3 class="text-base font-semibold leading-6 text-gray-900">Invested:
-                                    € {{ $invested }}</h3>
-                                <h3 class="text-base font-semibold leading-6 text-gray-900">{{ $quantity }} {{$crypto->acronym}}</h3>
-                                <h3 class="text-base font-semibold leading-6 text-gray-900">Actual value:
-                                    € {{ $actualValue }}</h3>
+                                    € {{ $totalCryptoAmount }}</h3>
+                                <h3 class="text-base font-semibold leading-6 text-gray-900">{{ $totalCryptoQuantity }} {{$crypto->acronym}}</h3>
+                                <h3 class="text-base font-semibold leading-6 text-gray-900">Actual Wallet Value:
+                                    € {{ $actualWalletValue }}</h3>
                             </div>
                         </div>
                     </div>

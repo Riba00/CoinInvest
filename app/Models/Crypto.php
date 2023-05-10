@@ -24,7 +24,7 @@ class Crypto extends Model
 
     public function getCurrencyEurPrice()
     {
-        $apiKey = env('COIN_MARKET_CAP_API_KEY'); // Reemplaza con tu propia API key
+        $apiKey = env('COIN_MARKET_CAP_API_KEY');
 
         $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
 
@@ -46,13 +46,16 @@ class Crypto extends Model
 
             if (isset($data['data'][$this->acronym])) {
                 $currencyPrice = $data['data'][$this->acronym]['quote']['EUR']['price'];
-                return number_format($currencyPrice, 2);
+                return $currencyPrice;
             } else {
                 return 'Crypto not found';
             }
         } catch (\Exception $e) {
-            // Manejo de errores
             return 'Error getting crypto price';
         }
+    }
+
+    public function getFormattedCurrencyEurPrice(){
+        return number_format($this->getCurrencyEurPrice(),2,',','.');
     }
 }

@@ -21,8 +21,8 @@
                             € {{ $total_invested }}</dd>
                     </div>
                     <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-                        <dt class="truncate text-sm font-medium text-gray-500">Avg. Click Rate</dt>
-                        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">24.57%</dd>
+                        <dt class="truncate text-sm font-medium text-gray-500">Total Profit</dt>
+                        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">€ {{ $profit }}</dd>
                     </div>
                 </dl>
             </div>

@@ -12,13 +12,17 @@ class WalletController extends Controller
     public function index()
     {
         $user = Auth::user();
+
         $balance = $user->getCryptoBalance();
 
-        $criptos = Crypto::all();
+        $cryptos = Deposit::select('crypto_id')
+                    ->where('user_id', $user->id)
+                    ->groupBy('crypto_id')
+                    ->get();
 
         return view('wallet.index',[
-            'balance' => $balance,
-            'cryptos' => $criptos
+            'wallets' => $balance,
+            'cryptos' => $cryptos
         ]);
     }
 
@@ -32,23 +36,15 @@ class WalletController extends Controller
                             ->where('crypto_id', $crypto->id)
                             ->get();
 
-        $total = 0;
-        $quantity = 0;
-        foreach ($deposits as $deposit){
-            $total += $deposit->amount;
-            $quantity += $deposit->quantity;
-        }
-        $totalFormatted = (double) number_format($total, 2, ',', '.');
-
-
-        $actualValue = (double)$crypto->getCurrencyEurPrice() * $totalFormatted;
+        $actualWalletValue = (double)$crypto->getCurrencyEurPrice() * $user->getCryptoQuantity($id);
 
         return view('wallet.show', [
             'crypto' => $crypto,
+            'totalCryptoQuantity' =>$user->getCryptoQuantity($crypto->id),
+            'totalCryptoAmount' =>$user->getCryptoAmount($crypto->id),
             'deposits' => $deposits,
-            'actualValue' => $actualValue,
-            'invested' => $totalFormatted,
-            'quantity' => $quantity
+            'actualWalletValue' => $actualWalletValue,
+
         ]);
     }
 

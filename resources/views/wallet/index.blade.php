@@ -25,26 +25,26 @@
                                 </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white">
-                                @foreach($balance as $currency)
+                                @foreach($wallets as $wallet)
                                     <tr>
                                     <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-2">
                                         <div class="flex items-center">
                                             <div class="h-11 w-11 flex-shrink-0">
-                                                <img class="h-11 w-11 rounded-full" src="{{ $currency->crypto->logo }}" alt="Crypto logo">
+                                                <img class="h-11 w-11 rounded-full" src="{{ $wallet->crypto->logo }}" alt="Crypto logo">
                                             </div>
                                             <div class="ml-4">
-                                                <div class="font-medium text-gray-900">{{ $currency->crypto->name }}</div>
+                                                <div class="font-medium text-gray-900">{{ $wallet->crypto->name }}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                        <div class="text-gray-900">{{ $currency->total }}   <b>{{ $currency->crypto->acronym }}</b></div>
+                                        <div class="text-gray-900">{{ $wallet->totalQuantity }}   <b>{{ $wallet->crypto->acronym }}</b></div>
                                     </td>
                                     </td>
-                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$currency->invested}}</td>
-                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$currency->crypto->getCurrencyEurPrice()}}</td>
+                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$wallet->totalInvested}}</td>
+                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">€ {{$wallet->crypto->getFormattedCurrencyEurPrice()}}</td>
                                     <td class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                        <a href="/wallet/{{ $currency->crypto->id }}" class="text-indigo-600 hover:text-indigo-900"><b>Show details</b></a>
+                                        <a href="/wallet/{{ $wallet->crypto->id }}" class="text-indigo-600 hover:text-indigo-900"><b>Show details</b></a>
                                     </td>
                                 </tr>
                                 @endforeach

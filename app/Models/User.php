@@ -69,10 +69,39 @@ class User extends Authenticatable
     public function getCryptoBalance()
     {
         $totals = Deposit::select('user_id', 'crypto_id')
-            ->where('user_id', $this->id)
-            ->selectRaw('SUM(quantity) as total, SUM(amount) as invested')
-            ->groupBy('user_id', 'crypto_id')
-            ->get();
+                        ->where('user_id', $this->id)
+                        ->selectRaw('SUM(quantity) as totalQuantity, SUM(amount) as totalInvested')
+                        ->groupBy('user_id', 'crypto_id')
+                        ->get();
         return $totals;
+    }
+
+    public function getCryptoQuantity($id)
+    {
+        $totalQuantity = Deposit::where('user_id', $this->id)
+                            ->where('crypto_id', $id)
+                            ->selectRaw('SUM(quantity) as quantity')
+                            ->groupBy('crypto_id')
+                            ->get();
+        return $totalQuantity[0]->quantity;
+    }
+
+    public function getCryptoAmount($id)
+    {
+        $totalAmount = Deposit::where('user_id', $this->id)
+            ->where('crypto_id', $id)
+            ->selectRaw('SUM(amount) as amount')
+            ->groupBy('crypto_id')
+            ->get();
+        return $totalAmount[0]->amount;
+    }
+
+    public function getTotalInvested()
+    {
+        $total = 0;
+        foreach ($this->deposits as $deposit){
+            $total += $deposit->amount;
+        }
+        return $total;
     }
 }
