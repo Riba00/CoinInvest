@@ -32,7 +32,7 @@ class Deposit extends Model
     {
         $quantity = (string) $this->quantity;
 
-        return number_format($quantity, strlen($quantity));
+        return number_format($quantity, strlen($quantity),',','.');
     }
 
     public function getFormattedDate()

@@ -5,7 +5,6 @@ namespace App\Models;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Stmt\DeclareDeclare;
 
 class Crypto extends Model
 {
@@ -44,6 +43,7 @@ class Crypto extends Model
 
             $data = json_decode($response->getBody(), true);
 
+
             if (isset($data['data'][$this->acronym])) {
                 $currencyPrice = $data['data'][$this->acronym]['quote']['EUR']['price'];
                 return $currencyPrice;
@@ -51,7 +51,7 @@ class Crypto extends Model
                 return 'Crypto not found';
             }
         } catch (\Exception $e) {
-            return 'Error getting crypto price';
+            return 0;
         }
     }
 

@@ -20,6 +20,8 @@ class WalletController extends Controller
                     ->groupBy('crypto_id')
                     ->get();
 
+//        dd($cryptos);
+
         return view('wallet.index',[
             'wallets' => $balance,
             'cryptos' => $cryptos
@@ -43,7 +45,7 @@ class WalletController extends Controller
             'totalCryptoQuantity' =>$user->getCryptoQuantity($crypto->id),
             'totalCryptoAmount' =>$user->getCryptoAmount($crypto->id),
             'deposits' => $deposits,
-            'actualWalletValue' => $actualWalletValue,
+            'actualWalletValue' => number_format($actualWalletValue,2,',','.')
 
         ]);
     }

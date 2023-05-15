@@ -12,7 +12,7 @@
                             <div class="ml-4">
                                 <h2 class="text-base font-semibold leading-6 text-gray-900">{{ $crypto->name }}</h2>
                                 <p class="text-sm text-gray-500">
-                                    € {{ $crypto->getCurrencyEurPrice() }}
+                                    € {{ $crypto->getFormattedCurrencyEurPrice() }}
                                 </p>
                                 <h3 class="text-base font-semibold leading-6 text-gray-900">Invested:
                                     € {{ $totalCryptoAmount }}</h3>
@@ -45,9 +45,6 @@
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
 
                                     </th>
-                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                        <span class="sr-only">Edit</span>
-                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white">
@@ -56,8 +53,8 @@
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                             {{ $deposit->getFormattedDate() }}
                                         </td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">€ {{ $deposit->amount }}</td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">€ {{ $deposit->amount }}</td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
                                             {{ $deposit->quantity }} <b>{{ $deposit->crypto->acronym }}</b>
                                         </td>
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">

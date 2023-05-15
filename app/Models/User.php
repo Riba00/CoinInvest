@@ -83,6 +83,7 @@ class User extends Authenticatable
                             ->selectRaw('SUM(quantity) as quantity')
                             ->groupBy('crypto_id')
                             ->get();
+
         return $totalQuantity[0]->quantity;
     }
 

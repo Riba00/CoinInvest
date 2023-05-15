@@ -212,7 +212,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="px-4 sm:px-6 lg:px-8 rounded-md">
             <div class="mt-8 flow-root">
-                <div class="shadow overflow-hidden border border-gray-200 sm:rounded-lg">
+                <div class="shadow overflow-x-auto border border-gray-200 sm:rounded-lg">
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <table class="min-w-full divide-y divide-gray-300">
                             <thead>
@@ -238,7 +238,7 @@
                             <tbody class="divide-y divide-gray-200 bg-white">
                             @if(count($deposits) == 0)
                                 <tr>
-                                    <td class="col-span-full">No deposits yet ...</td>
+                                    <td colspan="4" class="col-span-full text-center py-2">No deposits yet ...</td>
                                 </tr>
                             @else
                                 @foreach($deposits as $deposit)

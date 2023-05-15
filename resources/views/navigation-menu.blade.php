@@ -159,6 +159,12 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('deposits.index') }}" :active="request()->routeIs('deposits.index')">
+                {{ __('Deposits') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('wallet.index') }}" :active="request()->routeIs('wallet.index')">
+                {{ __('Wallet') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

@@ -22,6 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('terms', function() {
+    return view('terms');
+})->name('terms.show');
+
+Route::get('policy', function() {
+    return view('policy');
+})->name('policy.show');
+
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -44,9 +52,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::get('/cryptos/{id}',[CryptoController::class,'edit'])->name('cryptos.edit');
         Route::post('/cryptos/{id}',[CryptoController::class,'update']);
         Route::delete('cryptos/{id}',[CryptoController::class,'destroy']);
-
-
-
     });
 
 
