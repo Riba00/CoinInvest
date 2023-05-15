@@ -29,25 +29,18 @@ class DashboardController extends Controller
         }
 
 
-
-
-
-
-
-
-
         $recentDeposits = Deposit::where('user_id', $user->id)
-            ->orderBy('date', 'asc')
+            ->orderBy('date', 'desc')
             ->take(3)
             ->get();
-
 
 
         return view('dashboard', [
             'deposits_count' => count($user->deposits),
             'total_invested' => number_format($totalInvested,2,',','.'),
             'recent_diposits' => $recentDeposits,
-            'profit' => number_format($profit,2,',','.')
+            'actualValue' => number_format($profit,2,',','.'),
+            'profit' => $profit - $totalInvested
         ]);
     }
 

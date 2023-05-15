@@ -17,8 +17,12 @@ class DepositsController extends Controller
     {
         $user = Auth::user();
 
+        $deposits = Deposit::where('user_id',$user->id)
+                            ->orderBy('date', 'desc')
+                            ->get();
+
         return view('deposits.index',[
-            'deposits' => collect($user->deposits),
+            'deposits' => collect($deposits),
             'cryptos' => Crypto::all()
         ]);
     }

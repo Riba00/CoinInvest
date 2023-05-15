@@ -21,8 +21,16 @@
                             € {{ $total_invested }}</dd>
                     </div>
                     <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+                        <dt class="truncate text-sm font-medium text-gray-500">Actual value</dt>
+                        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">€ {{ $actualValue }}</dd>
+                    </div>
+                    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
                         <dt class="truncate text-sm font-medium text-gray-500">Total Profit</dt>
-                        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">€ {{ $profit }}</dd>
+                        @if($profit < 0)
+                            <dd class="mt-1 text-3xl font-semibold tracking-tight text-red-500">€ {{ number_format($profit,2,',','.') }}</dd>
+                        @else
+                            <dd class="mt-1 text-3xl font-semibold tracking-tight text-green-500">€ {{ $profit }}</dd>
+                        @endif
                     </div>
                 </dl>
             </div>
