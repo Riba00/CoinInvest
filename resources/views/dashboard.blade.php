@@ -29,7 +29,7 @@
                         @if($profit < 0)
                             <dd class="mt-1 text-3xl font-semibold tracking-tight text-red-500">€ {{ number_format($profit,2,',','.') }}</dd>
                         @else
-                            <dd class="mt-1 text-3xl font-semibold tracking-tight text-green-500">€ {{ $profit }}</dd>
+                            <dd class="mt-1 text-3xl font-semibold tracking-tight text-green-500">€ {{ number_format($profit,2,',','.') }}</dd>
                         @endif
                     </div>
                 </dl>
