@@ -56,3 +56,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
 
 });
+
+Route::fallback(function () {
+    return view('404');
+});
