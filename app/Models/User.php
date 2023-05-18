@@ -84,7 +84,7 @@ class User extends Authenticatable
                             ->groupBy('crypto_id')
                             ->get();
 
-        return $totalQuantity[0]->quantity;
+        return floatVal($totalQuantity[0]->quantity);
     }
 
     public function getCryptoAmount($id)

@@ -25,6 +25,7 @@ class Crypto extends Model
     {
         $apiKey = env('COIN_MARKET_CAP_API_KEY');
 
+
         $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
 
         $client = new Client();
@@ -46,9 +47,9 @@ class Crypto extends Model
 
             if (isset($data['data'][$this->acronym])) {
                 $currencyPrice = $data['data'][$this->acronym]['quote']['EUR']['price'];
-                return $currencyPrice;
+                return floatval($currencyPrice);
             } else {
-                return 'Crypto not found';
+                return 0;
             }
         } catch (\Exception $e) {
             return 0;
